@@ -17,7 +17,7 @@ router.get('/:id', (req, res) => {
     if (id >= 1 && id <= products.length) {
       res.status(201).send(products[id - 1]);
     } else {
-      res.status(400).send({ status: 'not found' });
+      res.status(400).send({ status: 'producto no encontrado' });
     }
   });
 
@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
     newid=products.length+1;
     let savedProduct = { ...newProduct, id: newid }
     products.push(savedProduct);
-    res.status(201).send({ status: 'posted' });
+    res.status(201).send({ status: 'agregado' });
     });
 
 router.put('/:id', (req, res) => {
@@ -35,9 +35,9 @@ router.put('/:id', (req, res) => {
     if ( id>= 1 && id <= products.length) {
         let updatedProduct = { ...tempProduct, id: parseInt(id) };
         products.splice(id - 1, 1, updatedProduct);
-        res.status(201).send({ status: 'updated ok' });
+        res.status(201).send({ status: 'actualizado ok' });
       } else {
-        res.status(400).send({ status: 'no product on file' });
+        res.status(400).send({ status: 'producto no encontrado' });
       }
     });
 
@@ -45,9 +45,9 @@ router.delete('/:id', (req, res) => {
     const { id } = req.params;
     if (id >= 1 && id <= products.length) {
       products.splice(id - 1, 1, );
-      res.status(201).send({ message: 'Deleted OK' });
+      res.status(201).send({ message: 'Eliminado' });
     } else {
-      res.status(400).send({ error: 'no product on file' });
+      res.status(400).send({ error: 'producto no encontrado' });
     }
     });
 
