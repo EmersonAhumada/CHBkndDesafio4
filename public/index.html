@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <link rel="stylesheet" href="styles.css" />
+
+    </head>
     <body>
-            <h2>Agregar Producto</h2>
+            <div class="center">
+            <h1>Agregar Producto</h2>
             <form action="/api/products" method="post">
                 <label for="title">Titulo:</label>
-                <input type="text" name="title" />
+                <input type="text" required="required" name="title" />
                 <label for="price">Precio:</label>
-                <input type="text" name="price" />
+                <input type="number" required="required" name="price" />
                 <label for="thumbnail">URL:</label>
-                <input type="text" name="thumbnail"/>
+                <input type="url" name="thumbnail"/>
                 <input type="submit" value="Enviar" />
             </form>
+        </div>
     </body>
 </html>
