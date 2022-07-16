@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     res.status(200).send(products);
 }); 
 
-router.get("/:id", (req, res) => {
+router.get('/:id', (req, res) => {
     const { id } = req.params;
     if (id >= 1 && id <= products.length) {
       res.status(201).send(products[id - 1]);
@@ -23,8 +23,8 @@ router.get("/:id", (req, res) => {
 
 router.post('/', (req, res) => {
     const newProduct = req.body; 
-    products.length++;
-    let savedProduct = {...newProduct, id: products.length}
+    newid=products.length+1;
+    let savedProduct = { ...newProduct, id: newid }
     products.push(savedProduct);
     res.status(201).send({ status: 'posted' });
     });
@@ -44,7 +44,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     const { id } = req.params;
     if (id >= 1 && id <= products.length) {
-      products.splice(id - 1, 1, { error: 'producto inexistente' });
+      products.splice(id - 1, 1, );
       res.status(201).send({ message: 'Deleted OK' });
     } else {
       res.status(400).send({ error: 'no product on file' });
